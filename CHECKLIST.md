@@ -2,7 +2,7 @@
 
 ## 🧱 1. Estrutura
 
-* [ ] Criar projeto React + Vite
+* [x] Criar projeto React + Vite
 * [ ] Configurar Bootstrap
 * [ ] Criar estrutura de pastas
 * [ ] Configurar PWA
