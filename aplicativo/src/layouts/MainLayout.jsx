@@ -6,7 +6,7 @@ function MainLayout({ children }) {
     <div className="app">
       <Navbar />
 
-      <main>
+      <main className="container py-3">
         {children}
       </main>
 

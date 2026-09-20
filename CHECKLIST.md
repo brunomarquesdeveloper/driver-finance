@@ -7,7 +7,7 @@
 * [x] Criar estrutura de pastas
 * [x] Configurar PWA
 * [x] Configurar Dexie.js
-* [ ] Definir layout mobile-first
+* [x] Definir layout mobile-first
 
 ## 🎨 2. Telas
 

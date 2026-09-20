@@ -1,13 +1,17 @@
 import './App.css'
+import { db } from './db/database'
 import MainLayout from './layouts/MainLayout'
-import '../src/db/database'
 
 function App() {
+  console.log('Banco:', db.name)
+
   return (
     <MainLayout>
       <section>
-        <h1>Driver Finance</h1>
-        <p>Controle financeiro para motoristas</p>
+        <h2>Dashboard</h2>
+        <p className="text-muted">
+          Resumo financeiro do motorista
+        </p>
       </section>
     </MainLayout>
   )

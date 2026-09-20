@@ -1,7 +1,9 @@
 function Navbar() {
   return (
-    <header>
-      <h1>Driver Finance</h1>
+    <header className="app-header">
+      <div className="container">
+        <h1>Driver Finance</h1>
+      </div>
     </header>
   )
 }
