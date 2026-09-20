@@ -4,7 +4,7 @@
 
 * [x] Criar projeto React + Vite
 * [x] Configurar Bootstrap
-* [ ] Criar estrutura de pastas
+* [x] Criar estrutura de pastas
 * [ ] Configurar PWA
 * [ ] Configurar Dexie.js
 * [ ] Definir layout mobile-first

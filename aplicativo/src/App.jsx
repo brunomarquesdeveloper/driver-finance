@@ -1,13 +1,14 @@
 import './App.css'
+import MainLayout from './layouts/MainLayout'
 
 function App() {
-
   return (
-    <>
+    <MainLayout>
       <section>
-        <h1>driver finance</h1>
+        <h1>Driver Finance</h1>
+        <p>Controle financeiro para motoristas</p>
       </section>
-    </>
+    </MainLayout>
   )
 }
 
