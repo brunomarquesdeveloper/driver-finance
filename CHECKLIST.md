@@ -3,7 +3,7 @@
 ## 🧱 1. Estrutura
 
 * [x] Criar projeto React + Vite
-* [ ] Configurar Bootstrap
+* [x] Configurar Bootstrap
 * [ ] Criar estrutura de pastas
 * [ ] Configurar PWA
 * [ ] Configurar Dexie.js
