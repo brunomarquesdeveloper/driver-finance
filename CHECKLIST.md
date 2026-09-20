@@ -6,7 +6,7 @@
 * [x] Configurar Bootstrap
 * [x] Criar estrutura de pastas
 * [x] Configurar PWA
-* [ ] Configurar Dexie.js
+* [x] Configurar Dexie.js
 * [ ] Definir layout mobile-first
 
 ## 🎨 2. Telas

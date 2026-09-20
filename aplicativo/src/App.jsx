@@ -1,5 +1,6 @@
 import './App.css'
 import MainLayout from './layouts/MainLayout'
+import '../src/db/database'
 
 function App() {
   return (
