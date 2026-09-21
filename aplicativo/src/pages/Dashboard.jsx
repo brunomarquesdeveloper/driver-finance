@@ -139,7 +139,7 @@ function Dashboard() {
             className="btn btn-primary quick-action w-100"
           >
             <i className="bi bi-plus-circle me-2"></i>
-            Nova corrida
+            Novos registros
           </button>
         </div>
 
