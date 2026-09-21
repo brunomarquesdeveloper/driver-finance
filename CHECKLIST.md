@@ -12,7 +12,7 @@
 ## 🎨 2. Telas
 
 * [x] Criar layout principal
-* [ ] Criar navegação mobile
+* [x] Criar navegação mobile
 * [ ] Tela Dashboard
 * [ ] Tela de Registros
 * [ ] Tela de Dados

@@ -1,21 +1,26 @@
+import { NavLink } from 'react-router-dom'
+
 function BottomNav() {
   const items = [
     {
       label: 'Início',
-      icon: 'bi-house-fill',
-      active: true
+      icon: 'bi-house',
+      path: '/'
     },
     {
       label: 'Corridas',
-      icon: 'bi-car-front'
+      icon: 'bi-car-front',
+      path: '/corridas'
     },
     {
       label: 'Despesas',
-      icon: 'bi-receipt'
+      icon: 'bi-receipt',
+      path: '/despesas'
     },
     {
       label: 'Config.',
-      icon: 'bi-gear'
+      icon: 'bi-gear',
+      path: '/configuracoes'
     }
   ]
 
@@ -23,20 +28,26 @@ function BottomNav() {
     <nav className="bottom-nav">
       <div className="container">
         <div className="row g-0">
+
           {items.map((item) => (
-            <div className="col-3" key={item.label}>
-              <button
-                type="button"
-                className={`bottom-nav-item ${
-                  item.active ? 'active' : ''
-                }`}
+            <div className="col-3" key={item.path}>
+
+              <NavLink
+                to={item.path}
+                className={({ isActive }) =>
+                  `bottom-nav-item ${
+                    isActive ? 'active' : ''
+                  }`
+                }
               >
                 <i className={`bi ${item.icon}`}></i>
 
                 <span>{item.label}</span>
-              </button>
+              </NavLink>
+
             </div>
           ))}
+
         </div>
       </div>
     </nav>
