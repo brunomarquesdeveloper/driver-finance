@@ -14,8 +14,7 @@
 * [x] Criar layout principal
 * [x] Criar navegação mobile
 * [x] Tela Dashboard
-* [ ] Tela de Registros
-* [ ] Tela de Dados
+* [x] Tela de Registros
 * [ ] Modal de instalação
 * [ ] Modal de armazenamento
 * [ ] Adaptar para desktop

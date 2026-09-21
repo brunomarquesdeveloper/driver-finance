@@ -4,8 +4,7 @@ import Header from './components/Header'
 import BottomNav from './components/BottomNav'
 
 import Dashboard from './pages/Dashboard'
-import Corridas from './pages/Corridas'
-import Despesas from './pages/Despesas'
+import Registros from './pages/Registros'
 import Configuracoes from './pages/Configuracoes'
 
 function App() {
@@ -17,10 +16,19 @@ function App() {
 
         <main className="main-content">
           <Routes>
+
             <Route path="/" element={<Dashboard />} />
-            <Route path="/corridas" element={<Corridas />} />
-            <Route path="/despesas" element={<Despesas />} />
-            <Route path="/configuracoes" element={<Configuracoes />} />
+
+            <Route
+              path="/registros"
+              element={<Registros />}
+            />
+
+            <Route
+              path="/configuracoes"
+              element={<Configuracoes />}
+            />
+
           </Routes>
         </main>
 

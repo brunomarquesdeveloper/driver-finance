@@ -163,6 +163,8 @@ button {
   text-decoration: none;
 }
 
+
+
 .summary-label {
   color: #adb5bd;
   font-size: 0.85rem;
@@ -191,4 +193,47 @@ button {
 
 .quick-action {
   min-height: 52px;
+}
+
+/* Registros diários */
+
+.daily-record-card {
+  border: 0;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.record-earnings {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.record-earnings strong {
+  font-size: 1.25rem;
+}
+
+.daily-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.daily-metric i {
+  font-size: 1rem;
+  color: #6c757d;
+  margin-bottom: 2px;
+}
+
+.daily-metric span {
+  font-size: 0.7rem;
+  color: #6c757d;
+}
+
+.daily-metric strong {
+  font-size: 0.9rem;
+}
+
+.daily-record-card .badge {
+  font-weight: 500;
 }

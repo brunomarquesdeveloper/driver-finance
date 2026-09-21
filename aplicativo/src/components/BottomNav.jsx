@@ -8,14 +8,14 @@ function BottomNav() {
       path: '/'
     },
     {
-      label: 'Corridas',
-      icon: 'bi-car-front',
-      path: '/corridas'
+      label: 'Registros',
+      icon: 'bi-list-ul',
+      path: '/registros'
     },
     {
-      label: 'Despesas',
-      icon: 'bi-receipt',
-      path: '/despesas'
+      label: 'Dados',
+      icon: 'bi-bar-chart',
+      path: '/dados'
     },
     {
       label: 'Config.',
@@ -41,7 +41,6 @@ function BottomNav() {
                 }
               >
                 <i className={`bi ${item.icon}`}></i>
-
                 <span>{item.label}</span>
               </NavLink>
 
