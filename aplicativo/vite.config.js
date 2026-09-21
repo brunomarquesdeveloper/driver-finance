@@ -10,6 +10,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
 
       manifest: {
+        id: '/',
         name: 'Driver Finance',
         short_name: 'Driver Finance',
         description: 'Controle financeiro para motoristas de aplicativo',

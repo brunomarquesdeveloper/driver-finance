@@ -1,19 +1,18 @@
-import './App.css'
-import { db } from './db/database'
-import MainLayout from './layouts/MainLayout'
+import Header from './components/Header'
+import BottomNav from './components/BottomNav'
+import Dashboard from './pages/Dashboard'
 
 function App() {
-  console.log('Banco:', db.name)
-
   return (
-    <MainLayout>
-      <section>
-        <h2>Dashboard</h2>
-        <p className="text-muted">
-          Resumo financeiro do motorista
-        </p>
-      </section>
-    </MainLayout>
+    <div className="app">
+      <Header />
+
+      <main className="main-content">
+        <Dashboard />
+      </main>
+
+      <BottomNav />
+    </div>
   )
 }
 

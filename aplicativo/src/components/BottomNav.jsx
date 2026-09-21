@@ -1,20 +1,44 @@
 function BottomNav() {
+  const items = [
+    {
+      label: 'Início',
+      icon: 'bi-house-fill',
+      active: true
+    },
+    {
+      label: 'Corridas',
+      icon: 'bi-car-front'
+    },
+    {
+      label: 'Despesas',
+      icon: 'bi-receipt'
+    },
+    {
+      label: 'Config.',
+      icon: 'bi-gear'
+    }
+  ]
+
   return (
     <nav className="bottom-nav">
-      <a href="/">
-        <span>🏠</span>
-        <small>Início</small>
-      </a>
+      <div className="container">
+        <div className="row g-0">
+          {items.map((item) => (
+            <div className="col-3" key={item.label}>
+              <button
+                type="button"
+                className={`bottom-nav-item ${
+                  item.active ? 'active' : ''
+                }`}
+              >
+                <i className={`bi ${item.icon}`}></i>
 
-      <a href="/registros">
-        <span>📋</span>
-        <small>Registros</small>
-      </a>
-
-      <a href="/dados">
-        <span>⚙️</span>
-        <small>Dados</small>
-      </a>
+                <span>{item.label}</span>
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
     </nav>
   )
 }
