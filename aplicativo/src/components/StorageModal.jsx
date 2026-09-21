@@ -1,12 +1,26 @@
-function StorageModal({ show, onClose }) {
+import { useEffect, useState } from 'react'
+
+function StorageModal() {
+  const [show, setShow] = useState(false)
+
+  useEffect(() => {
+    const avisoVisto = localStorage.getItem('storage_notice_seen')
+
+    if (!avisoVisto) {
+      setShow(true)
+    }
+  }, [])
+
+  const fecharAviso = () => {
+    localStorage.setItem('storage_notice_seen', 'true')
+    setShow(false)
+  }
+
   if (!show) return null
 
   return (
     <>
-      <div
-        className="modal-backdrop fade show"
-        onClick={onClose}
-      ></div>
+      <div className="modal-backdrop fade show"></div>
 
       <div
         className="modal fade show d-block"
@@ -14,21 +28,14 @@ function StorageModal({ show, onClose }) {
         role="dialog"
         aria-modal="true"
       >
-        <div className="modal-dialog modal-dialog-centered">
+        <div className="modal-dialog modal-dialog-centered px-3">
           <div className="modal-content">
 
             <div className="modal-header">
               <h5 className="modal-title">
                 <i className="bi bi-database me-2"></i>
-                Armazenamento
+                Seus dados
               </h5>
-
-              <button
-                type="button"
-                className="btn-close"
-                aria-label="Fechar"
-                onClick={onClose}
-              ></button>
             </div>
 
             <div className="modal-body">
@@ -37,54 +44,35 @@ function StorageModal({ show, onClose }) {
                 <i className="bi bi-phone display-5 text-primary"></i>
 
                 <h6 className="fw-bold mt-3">
-                  Dados armazenados neste dispositivo
+                  Seus dados ficam neste dispositivo
                 </h6>
-
-                <p className="text-secondary small mb-0">
-                  Seus registros financeiros são armazenados
-                  localmente no navegador através do IndexedDB.
-                </p>
               </div>
 
-              <div className="card bg-light border-0">
-                <div className="card-body">
+              <p className="small text-secondary">
+                Para funcionar mesmo sem internet, o Driver Finance
+                armazena seus registros diretamente neste dispositivo.
+              </p>
 
-                  <div className="d-flex justify-content-between mb-2">
-                    <span className="text-secondary">
-                      Armazenamento utilizado
-                    </span>
-
-                    <strong>
-                      Calculando...
-                    </strong>
-                  </div>
-
-                  <div className="progress" role="progressbar">
-                    <div
-                      className="progress-bar"
-                      style={{ width: '0%' }}
-                    ></div>
-                  </div>
-
-                </div>
+              <div className="alert alert-warning small mb-3">
+                <i className="bi bi-exclamation-triangle me-2"></i>
+                Se você limpar os dados do navegador ou desinstalar o
+                aplicativo, seus registros poderão ser apagados.
               </div>
 
-              <div className="alert alert-light border mt-3 mb-0 small">
-                <i className="bi bi-info-circle me-2"></i>
-                Os dados não são enviados automaticamente para um
-                servidor. Limpar os dados do navegador pode apagar
-                seus registros.
-              </div>
+              <p className="small text-secondary mb-0">
+                Recomendamos fazer backups regularmente quando essa
+                função estiver disponível.
+              </p>
 
             </div>
 
             <div className="modal-footer">
               <button
                 type="button"
-                className="btn btn-secondary w-100"
-                onClick={onClose}
+                className="btn btn-primary w-100"
+                onClick={fecharAviso}
               >
-                Fechar
+                Entendi
               </button>
             </div>
 

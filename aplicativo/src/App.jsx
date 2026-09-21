@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Header from './components/Header'
 import BottomNav from './components/BottomNav'
+import StorageModal from './components/StorageModal'
 
 import Dashboard from './pages/Dashboard'
 import Registros from './pages/Registros'
@@ -33,6 +34,7 @@ function App() {
         </main>
 
         <BottomNav />
+        <StorageModal />
 
       </div>
     </BrowserRouter>
