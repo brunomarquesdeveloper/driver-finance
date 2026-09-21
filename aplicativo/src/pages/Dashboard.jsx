@@ -4,36 +4,54 @@ function Dashboard() {
   return (
     <div className="container py-4">
 
-      {/* Período */}
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <div>
-          <h2 className="h4 fw-bold mb-1">
-            Dashboard
-          </h2>
+      {/* Cabeçalho */}
+      <div className="mb-4">
+        <h2 className="h4 fw-bold mb-1">
+          Dashboard
+        </h2>
 
-          <span className="text-secondary small">
-            Resumo de hoje
-          </span>
+        <p className="text-secondary small mb-3">
+          Acompanhe seu desempenho financeiro
+        </p>
+
+        {/* Seletor de período */}
+        <div className="btn-group w-100" role="group">
+          <button
+            type="button"
+            className="btn btn-primary"
+          >
+            Hoje
+          </button>
+
+          <button
+            type="button"
+            className="btn btn-outline-primary"
+          >
+            Semana
+          </button>
+
+          <button
+            type="button"
+            className="btn btn-outline-primary"
+          >
+            Mês
+          </button>
         </div>
-
-        <button
-          className="btn btn-outline-secondary btn-sm"
-          type="button"
-        >
-          <i className="bi bi-calendar3 me-2"></i>
-          Hoje
-        </button>
       </div>
 
-      {/* Resumo principal */}
+      {/* Resumo financeiro */}
       <div className="card main-summary mb-4">
         <div className="card-body p-4">
 
-          <div className="text-secondary small mb-1">
-            Ganhos líquidos
+          <div className="d-flex justify-content-between align-items-start mb-1">
+            <span className="summary-label">
+              Resultado líquido
+            </span>
+
+            <i className="bi bi-wallet2 summary-icon"></i>
           </div>
 
-          <div className="display-6 fw-bold mb-3">
+          <div className="display-6 fw-bold mb-4">
             R$ 0,00
           </div>
 
@@ -41,15 +59,27 @@ function Dashboard() {
 
             <div className="col-6">
               <div className="summary-item">
-                <span>Ganhos</span>
-                <strong>R$ 0,00</strong>
+                <span>
+                  <i className="bi bi-arrow-up-circle me-1"></i>
+                  Ganhos
+                </span>
+
+                <strong>
+                  R$ 0,00
+                </strong>
               </div>
             </div>
 
             <div className="col-6">
               <div className="summary-item">
-                <span>Despesas</span>
-                <strong>R$ 0,00</strong>
+                <span>
+                  <i className="bi bi-arrow-down-circle me-1"></i>
+                  Despesas
+                </span>
+
+                <strong>
+                  R$ 0,00
+                </strong>
               </div>
             </div>
 
@@ -58,9 +88,15 @@ function Dashboard() {
       </div>
 
       {/* Indicadores */}
-      <h3 className="section-title">
-        Indicadores
-      </h3>
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h3 className="section-title mb-0">
+          Indicadores
+        </h3>
+
+        <span className="text-secondary small">
+          Hoje
+        </span>
+      </div>
 
       <div className="row g-3 mb-4">
 
@@ -103,7 +139,7 @@ function Dashboard() {
             className="btn btn-primary quick-action w-100"
           >
             <i className="bi bi-plus-circle me-2"></i>
-            Adicionar corrida
+            Nova corrida
           </button>
         </div>
 
@@ -112,26 +148,38 @@ function Dashboard() {
             type="button"
             className="btn btn-outline-primary quick-action w-100"
           >
-            <i className="bi bi-receipt me-2"></i>
-            Adicionar despesa
+            <i className="bi bi-plus-circle me-2"></i>
+            Nova despesa
           </button>
         </div>
 
       </div>
 
-      {/* Estado vazio */}
+      {/* Atividade recente */}
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h3 className="section-title mb-0">
+          Atividade recente
+        </h3>
+
+        <button
+          type="button"
+          className="btn btn-link btn-sm text-decoration-none p-0"
+        >
+          Ver tudo
+        </button>
+      </div>
+
       <div className="card empty-card">
         <div className="card-body text-center py-5">
 
           <i className="bi bi-bar-chart-line display-5 text-secondary"></i>
 
           <h4 className="h6 fw-bold mt-3">
-            Nenhum dado registrado
+            Nenhum registro
           </h4>
 
           <p className="text-secondary small mb-0">
-            Adicione sua primeira corrida ou despesa
-            para começar a acompanhar seus resultados.
+            Suas corridas e despesas aparecerão aqui.
           </p>
 
         </div>

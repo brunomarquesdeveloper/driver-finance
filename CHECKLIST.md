@@ -13,7 +13,7 @@
 
 * [x] Criar layout principal
 * [x] Criar navegação mobile
-* [ ] Tela Dashboard
+* [x] Tela Dashboard
 * [ ] Tela de Registros
 * [ ] Tela de Dados
 * [ ] Modal de instalação

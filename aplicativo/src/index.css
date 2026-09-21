@@ -162,3 +162,33 @@ button {
 .bottom-nav-item {
   text-decoration: none;
 }
+
+.summary-label {
+  color: #adb5bd;
+  font-size: 0.85rem;
+}
+
+.summary-icon {
+  font-size: 1.25rem;
+  color: #adb5bd;
+}
+
+.summary-item span {
+  display: block;
+  color: #adb5bd;
+  font-size: 0.75rem;
+  margin-bottom: 2px;
+}
+
+.summary-item strong {
+  font-size: 0.95rem;
+}
+
+.btn-group .btn {
+  min-height: 42px;
+  font-weight: 600;
+}
+
+.quick-action {
+  min-height: 52px;
+}
