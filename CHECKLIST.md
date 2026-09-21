@@ -15,7 +15,6 @@
 * [x] Criar navegação mobile
 * [x] Tela Dashboard
 * [x] Tela de Registros
-* [x] Modal de armazenamento
 * [ ] Adaptar para desktop
 
 ## ⚙️ 3. Funcionalidades
