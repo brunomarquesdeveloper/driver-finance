@@ -22,7 +22,7 @@
 * [x] Salvar corridas
 * [x] Salvar despesas
 * [x] Adicionar formulário de categorias e integrar ao sistema de despesas
-* [ ] Calcular informações do Dashboard
+* [x] Calcular informações do Dashboard
 
 ## 📱 4. PWA
 
