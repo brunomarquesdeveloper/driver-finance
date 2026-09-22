@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { salvarDespesa } from '../services/despesas'
+import { buscarCategorias } from '../services/configuracoes'
 
 function DespesaForm({ aberto, fechar, onSalvo }) {
   const [form, setForm] = useState({
@@ -8,16 +9,22 @@ function DespesaForm({ aberto, fechar, onSalvo }) {
     categoria: ''
   })
 
+  const [categorias, setCategorias] = useState([])
   const [salvando, setSalvando] = useState(false)
 
-  const categorias = [
-    'Combustível',
-    'Alimentação',
-    'Aluguel',
-    'Manutenção',
-    'Lavagem',
-    'Outros'
-  ]
+  
+  useEffect(() => {
+    async function carregarCategorias() {
+      try {
+        const categorias = await buscarCategorias()
+        setCategorias(categorias.map(c => c.nome))
+      } catch (error) {
+        console.error('❌ Erro ao carregar categorias:', error)
+      }
+    }
+
+    carregarCategorias()
+  }, [aberto])
 
   function handleChange(event) {
     const { name, value } = event.target

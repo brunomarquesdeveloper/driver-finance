@@ -9,12 +9,12 @@ function BottomNav() {
     },
     {
       label: 'Registros',
-      icon: 'bi-list-ul',
+      icon: 'bi-journal-text',
       path: '/registros'
     },
     {
       label: 'Despesas',
-      icon: 'bi-list-ul',
+      icon: 'bi-receipt',
       path: '/despesas'
     },
     {
@@ -35,8 +35,7 @@ function BottomNav() {
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
-                  `bottom-nav-item ${
-                    isActive ? 'active' : ''
+                  `bottom-nav-item ${isActive ? 'active' : ''
                   }`
                 }
               >

@@ -21,9 +21,7 @@
 * [x] Criar banco local
 * [x] Salvar corridas
 * [x] Salvar despesas
-* [ ] Editar registros
-* [ ] Excluir registros
-* [ ] Carregar dados salvos
+* [x] Adicionar formulário de categorias e integrar ao sistema de despesas
 * [ ] Calcular informações do Dashboard
 
 ## 📱 4. PWA
