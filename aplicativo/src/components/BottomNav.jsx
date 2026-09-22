@@ -13,6 +13,11 @@ function BottomNav() {
       path: '/registros'
     },
     {
+      label: 'Despesas',
+      icon: 'bi-list-ul',
+      path: '/despesas'
+    },
+    {
       label: 'Config.',
       icon: 'bi-gear',
       path: '/configuracoes'
@@ -25,7 +30,7 @@ function BottomNav() {
         <div className="row g-0">
 
           {items.map((item) => (
-            <div className="col-4" key={item.path}>
+            <div className="col-3" key={item.path}>
 
               <NavLink
                 to={item.path}

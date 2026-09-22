@@ -1,45 +1,28 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+
+import RegistroForm from '../components/RegistroForm'
+import { buscarRegistros } from '../services/registros'
 
 function Registros() {
   const [periodo, setPeriodo] = useState('todos')
+  const [mostrarFormulario, setMostrarFormulario] = useState(false)
+  const [registros, setRegistros] = useState([])
 
-  // Dados temporários para testar o layout.
-  // Posteriormente serão substituídos pelos dados do IndexedDB.
-  const registros = [
-    {
-      id: 1,
-      data: '20/09/2026',
-      dia: 'Domingo',
-      ganhosBrutos: 320.50,
-      tempoTrabalhado: '8h 20min',
-      kmPercorridos: 186,
-      quantidadeCorridas: 24,
-      plataformas: ['Uber', '99']
-    },
-    {
-      id: 2,
-      data: '19/09/2026',
-      dia: 'Sábado',
-      ganhosBrutos: 280.00,
-      tempoTrabalhado: '7h',
-      kmPercorridos: 160,
-      quantidadeCorridas: 21,
-      plataformas: ['Uber']
-    },
-    {
-      id: 3,
-      data: '18/09/2026',
-      dia: 'Sexta-feira',
-      ganhosBrutos: 245.80,
-      tempoTrabalhado: '6h 40min',
-      kmPercorridos: 142,
-      quantidadeCorridas: 19,
-      plataformas: ['Uber', '99']
+  useEffect(() => {
+    carregarRegistros()
+  }, [])
+
+  async function carregarRegistros() {
+    try {
+      const dados = await buscarRegistros()
+
+      setRegistros(dados)
+    } catch (error) {
+      console.error('❌ Erro ao carregar registros:', error)
     }
-  ]
+  }
 
   const registrosFiltrados = registros.filter(() => {
-    // O filtro será conectado às datas reais posteriormente.
     return periodo === 'todos' || periodo === 'mes'
   })
 
@@ -48,6 +31,10 @@ function Registros() {
       style: 'currency',
       currency: 'BRL'
     })
+  }
+
+  function abrirFormulario() {
+    setMostrarFormulario(true)
   }
 
   return (
@@ -68,10 +55,11 @@ function Registros() {
 
         <button
           type="button"
-          className="btn btn-primary btn-sm"
+          className="btn btn-primary"
+          onClick={abrirFormulario}
         >
-          <i className="bi bi-plus-lg me-1"></i>
-          Adicionar
+          <i className="bi bi-plus-lg me-2"></i>
+          Adicionar registro
         </button>
 
       </div>
@@ -81,11 +69,10 @@ function Registros() {
 
         <button
           type="button"
-          className={`btn ${
-            periodo === 'todos'
-              ? 'btn-primary'
-              : 'btn-outline-primary'
-          }`}
+          className={`btn ${periodo === 'todos'
+            ? 'btn-primary'
+            : 'btn-outline-primary'
+            }`}
           onClick={() => setPeriodo('todos')}
         >
           Todos
@@ -93,11 +80,10 @@ function Registros() {
 
         <button
           type="button"
-          className={`btn ${
-            periodo === 'mes'
-              ? 'btn-primary'
-              : 'btn-outline-primary'
-          }`}
+          className={`btn ${periodo === 'mes'
+            ? 'btn-primary'
+            : 'btn-outline-primary'
+            }`}
           onClick={() => setPeriodo('mes')}
         >
           Este mês
@@ -263,6 +249,7 @@ function Registros() {
             <button
               type="button"
               className="btn btn-primary"
+              onClick={abrirFormulario}
             >
               <i className="bi bi-plus-lg me-2"></i>
               Adicionar registro
@@ -272,6 +259,11 @@ function Registros() {
 
         </div>
       )}
+
+      <RegistroForm
+        aberto={mostrarFormulario}
+        fechar={() => setMostrarFormulario(false)}
+      />
 
     </div>
   )

@@ -5,6 +5,7 @@ import BottomNav from './components/BottomNav'
 
 import Dashboard from './pages/Dashboard'
 import Registros from './pages/Registros'
+import Despesas from './pages/Despesas'
 import Configuracoes from './pages/Configuracoes'
 
 function App() {
@@ -22,6 +23,11 @@ function App() {
             <Route
               path="/registros"
               element={<Registros />}
+            />
+
+            <Route
+              path="/despesas"
+              element={<Despesas />}
             />
 
             <Route

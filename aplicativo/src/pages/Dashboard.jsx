@@ -154,37 +154,6 @@ function Dashboard() {
         </div>
 
       </div>
-
-      {/* Atividade recente */}
-      <div className="d-flex justify-content-between align-items-center mb-3">
-        <h3 className="section-title mb-0">
-          Atividade recente
-        </h3>
-
-        <button
-          type="button"
-          className="btn btn-link btn-sm text-decoration-none p-0"
-        >
-          Ver tudo
-        </button>
-      </div>
-
-      <div className="card empty-card">
-        <div className="card-body text-center py-5">
-
-          <i className="bi bi-bar-chart-line display-5 text-secondary"></i>
-
-          <h4 className="h6 fw-bold mt-3">
-            Nenhum registro
-          </h4>
-
-          <p className="text-secondary small mb-0">
-            Suas corridas e despesas aparecerão aqui.
-          </p>
-
-        </div>
-      </div>
-
     </div>
   )
 }

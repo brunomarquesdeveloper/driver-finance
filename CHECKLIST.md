@@ -18,8 +18,8 @@
 
 ## ⚙️ 3. Funcionalidades
 
-* [ ] Criar banco local
-* [ ] Salvar corridas
+* [x] Criar banco local
+* [x] Salvar corridas
 * [ ] Salvar despesas
 * [ ] Editar registros
 * [ ] Excluir registros
