@@ -20,7 +20,7 @@
 
 * [x] Criar banco local
 * [x] Salvar corridas
-* [ ] Salvar despesas
+* [x] Salvar despesas
 * [ ] Editar registros
 * [ ] Excluir registros
 * [ ] Carregar dados salvos

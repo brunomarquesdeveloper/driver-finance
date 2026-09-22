@@ -1,6 +1,23 @@
+import { useState } from 'react'
 import StatCard from '../components/StatCard'
 
+import RegistroForm from '../components/RegistroForm'
+import DespesaForm from '../components/DespesaForm'
+
 function Dashboard() {
+  const [mostrarFormularioRegistro, setMostrarFormularioRegistro] = useState(false)
+  const [mostrarFormularioDespesa, setMostrarFormularioDespesa] = useState(false)
+
+
+  function abrirFormularioRegistro() {
+    setMostrarFormularioRegistro(true)
+  }
+
+  function abrirFormularioDespesa() {
+    setMostrarFormularioDespesa(true)
+  }
+
+
   return (
     <div className="container py-4">
 
@@ -137,6 +154,7 @@ function Dashboard() {
           <button
             type="button"
             className="btn btn-primary quick-action w-100"
+            onClick={abrirFormularioRegistro}
           >
             <i className="bi bi-plus-circle me-2"></i>
             Novos registros
@@ -147,6 +165,7 @@ function Dashboard() {
           <button
             type="button"
             className="btn btn-outline-primary quick-action w-100"
+            onClick={abrirFormularioDespesa}
           >
             <i className="bi bi-plus-circle me-2"></i>
             Nova despesa
@@ -154,6 +173,17 @@ function Dashboard() {
         </div>
 
       </div>
+
+      <RegistroForm
+        aberto={mostrarFormularioRegistro}
+        fechar={() => setMostrarFormularioRegistro(false)}
+      />
+
+      <DespesaForm
+        aberto={mostrarFormularioDespesa}
+        fechar={() => setMostrarFormularioDespesa(false)}
+      />
+
     </div>
   )
 }

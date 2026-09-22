@@ -120,7 +120,7 @@ function Registros() {
 
                 <div>
                   <div className="fw-bold">
-                    {registro.data}
+                    {registro.data.split('-').reverse().join('/')}
                   </div>
 
                   <div className="text-secondary small">
