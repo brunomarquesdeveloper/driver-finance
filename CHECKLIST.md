@@ -25,7 +25,7 @@
 * [x] Calcular informações do Dashboard
 * [x] Adicionar configurações de personalização, tema, e gerenciamento de dados
 * [x] Adicionar funcionalidade de gerenciamento de dados
-
+* [x] Adicionar modal de suporte com formulário de contato
 ## 🧪 5. Finalização
 
 * [ ] Testar telas
