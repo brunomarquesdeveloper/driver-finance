@@ -1,9 +1,6 @@
 :root {
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
-
-  color: #212529;
-  background-color: #f5f6f8;
 }
 
 * {
@@ -12,11 +9,16 @@
 
 body {
   margin: 0;
-  background-color: #f5f6f8;
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
 }
 
 button {
   -webkit-tap-highlight-color: transparent;
+}
+
+#root {
+  min-height: 100vh;
 }
 
 .app {
@@ -24,14 +26,86 @@ button {
   padding-bottom: 75px;
 }
 
-/* Header */
 
-.app-header {
-  background-color: #ffffff;
-  border-bottom: 1px solid #e9ecef;
+/* ================================
+   TEMA CLARO
+================================ */
+
+[data-bs-theme="light"] {
+  --bs-body-bg: #f5f6f8;
+  --bs-body-color: #212529;
+
+  --bs-secondary-color: #6c757d;
+  --bs-tertiary-color: #868e96;
+
+  --bs-border-color: #dee2e6;
+
+  --app-header-bg: #ffffff;
+  --app-header-border: #e9ecef;
+
+  --bottom-nav-bg: #ffffff;
+  --bottom-nav-border: #dee2e6;
+
+  --card-bg: #ffffff;
+  --card-border: #dee2e6;
+
+  --summary-bg: #212529;
+  --summary-color: #ffffff;
+  --summary-secondary: #adb5bd;
+
+  --muted-icon: #6c757d;
 }
 
-/* Conteúdo */
+
+/* ================================
+   TEMA ESCURO
+================================ */
+
+[data-bs-theme="dark"] {
+  --bs-body-bg: #121212;
+  --bs-body-color: #f1f3f5;
+
+  --bs-secondary-color: #adb5bd;
+  --bs-tertiary-color: #868e96;
+
+  --bs-border-color: #343a40;
+
+  --app-header-bg: #212529;
+  --app-header-border: #343a40;
+
+  --bottom-nav-bg: #212529;
+  --bottom-nav-border: #343a40;
+
+  --card-bg: #212529;
+  --card-border: #343a40;
+
+  --summary-bg: #212529;
+  --summary-color: #f1f3f5;
+  --summary-secondary: #adb5bd;
+
+  --muted-icon: #adb5bd;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.app-header {
+  background-color: var(--app-header-bg);
+  color: var(--bs-body-color);
+
+  border-bottom: 1px solid var(--app-header-border);
+}
+
+.app-header h1 {
+  color: var(--bs-body-color);
+}
+
+
+/* ================================
+   CONTEÚDO
+================================ */
 
 .main-content {
   min-height: calc(100vh - 70px);
@@ -41,20 +115,32 @@ button {
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  color: var(--bs-body-color);
 }
 
-/* Resumo */
+
+/* ================================
+   RESUMO FINANCEIRO
+================================ */
 
 .main-summary {
   border: 0;
   border-radius: 16px;
-  background: #212529;
-  color: #ffffff;
+
+  background: var(--summary-bg);
+  color: var(--summary-color);
+
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
-.main-summary .text-secondary {
-  color: #adb5bd !important;
+.summary-label {
+  color: var(--summary-secondary);
+  font-size: 0.85rem;
+}
+
+.summary-icon {
+  font-size: 1.25rem;
+  color: var(--summary-secondary);
 }
 
 .summary-item {
@@ -64,142 +150,88 @@ button {
 }
 
 .summary-item span {
-  font-size: 0.75rem;
-  color: #adb5bd;
-}
-
-.summary-item strong {
-  font-size: 0.95rem;
-}
-
-/* Cards */
-
-.stat-card {
-  border: 0;
-  border-radius: 14px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-}
-
-.stat-card .bi {
-  font-size: 1.1rem;
-  color: #6c757d;
-}
-
-/* Ações */
-
-.quick-action {
-  min-height: 50px;
-  border-radius: 12px;
-  font-weight: 600;
-}
-
-/* Estado vazio */
-
-.empty-card {
-  border: 1px dashed #ced4da;
-  border-radius: 16px;
-  background: transparent;
-}
-
-/* Navegação inferior */
-
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  z-index: 1030;
-
-  background: #ffffff;
-  border-top: 1px solid #dee2e6;
-}
-
-.bottom-nav-item {
-  width: 100%;
-  height: 68px;
-
-  border: 0;
-  background: transparent;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  gap: 4px;
-
-  color: #6c757d;
-
-  font-size: 0.7rem;
-}
-
-.bottom-nav-item i {
-  font-size: 1.2rem;
-}
-
-.bottom-nav-item.active {
-  color: #0d6efd;
-  font-weight: 600;
-}
-
-/* Desktop */
-
-@media (min-width: 768px) {
-  .main-content {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .bottom-nav {
-    max-width: 900px;
-    margin: 0 auto;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-.bottom-nav-item {
-  text-decoration: none;
-}
-
-
-
-.summary-label {
-  color: #adb5bd;
-  font-size: 0.85rem;
-}
-
-.summary-icon {
-  font-size: 1.25rem;
-  color: #adb5bd;
-}
-
-.summary-item span {
   display: block;
-  color: #adb5bd;
+
+  color: var(--summary-secondary);
+
   font-size: 0.75rem;
   margin-bottom: 2px;
 }
 
 .summary-item strong {
   font-size: 0.95rem;
+  color: var(--summary-color);
 }
+
+.main-summary .text-secondary {
+  color: var(--summary-secondary) !important;
+}
+
+
+/* ================================
+   CARDS DE INDICADORES
+================================ */
+
+.stat-card {
+  border: 0;
+  border-radius: 14px;
+
+  background-color: var(--card-bg);
+  color: var(--bs-body-color);
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.stat-card .bi {
+  font-size: 1.1rem;
+  color: var(--muted-icon);
+}
+
+
+/* ================================
+   AÇÕES RÁPIDAS
+================================ */
+
+.quick-action {
+  min-height: 52px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+
+/* ================================
+   SELETOR DE PERÍODO
+================================ */
 
 .btn-group .btn {
   min-height: 42px;
   font-weight: 600;
 }
 
-.quick-action {
-  min-height: 52px;
+
+/* ================================
+   ESTADO VAZIO
+================================ */
+
+.empty-card {
+  border: 1px dashed var(--bs-border-color);
+  border-radius: 16px;
+  background: transparent;
+  color: var(--bs-body-color);
 }
 
-/* Registros diários */
+
+/* ================================
+   REGISTROS DIÁRIOS
+================================ */
 
 .daily-record-card {
   border: 0;
   border-radius: 16px;
+
+  background-color: var(--card-bg);
+  color: var(--bs-body-color);
+
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
 
@@ -211,6 +243,7 @@ button {
 
 .record-earnings strong {
   font-size: 1.25rem;
+  color: var(--bs-body-color);
 }
 
 .daily-metric {
@@ -221,19 +254,121 @@ button {
 
 .daily-metric i {
   font-size: 1rem;
-  color: #6c757d;
+  color: var(--muted-icon);
   margin-bottom: 2px;
 }
 
 .daily-metric span {
   font-size: 0.7rem;
-  color: #6c757d;
+  color: var(--bs-secondary-color);
 }
 
 .daily-metric strong {
   font-size: 0.9rem;
+  color: var(--bs-body-color);
 }
 
 .daily-record-card .badge {
   font-weight: 500;
+}
+
+
+/* ================================
+   LISTAS
+================================ */
+
+.list-group-item {
+  background-color: var(--card-bg);
+  color: var(--bs-body-color);
+  border-color: var(--bs-border-color);
+}
+
+.list-group-item-action:hover,
+.list-group-item-action:focus {
+  background-color: var(--bs-tertiary-bg);
+  color: var(--bs-body-color);
+}
+
+
+/* ================================
+   TEXTOS SECUNDÁRIOS
+================================ */
+
+.text-secondary {
+  color: var(--bs-secondary-color) !important;
+}
+
+
+/* ================================
+   NAVEGAÇÃO INFERIOR
+================================ */
+
+.bottom-nav {
+  position: fixed;
+
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 1030;
+
+  background-color: var(--bottom-nav-bg);
+  border-top: 1px solid var(--bottom-nav-border);
+}
+
+.bottom-nav-item {
+  width: 100%;
+  height: 68px;
+
+  border: 0;
+
+  background: transparent;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 4px;
+
+  color: var(--bs-secondary-color);
+
+  font-size: 0.7rem;
+
+  text-decoration: none;
+}
+
+.bottom-nav-item i {
+  font-size: 1.2rem;
+}
+
+.bottom-nav-item.active {
+  color: #0d6efd;
+  font-weight: 600;
+}
+
+
+/* ================================
+   DESKTOP
+================================ */
+
+@media (min-width: 768px) {
+
+  .main-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .bottom-nav {
+    max-width: 900px;
+    margin: 0 auto;
+
+    left: 50%;
+    right: auto;
+
+    width: 100%;
+
+    transform: translateX(-50%);
+  }
+
 }

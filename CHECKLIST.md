@@ -23,6 +23,7 @@
 * [x] Salvar despesas
 * [x] Adicionar formulário de categorias e integrar ao sistema de despesas
 * [x] Calcular informações do Dashboard
+* [x] Adicionar configurações de personalização, tema, e gerenciamento de dados
 
 ## 📱 4. PWA
 
