@@ -27,10 +27,18 @@ function Registros() {
   })
 
   const formatarMoeda = (valor) => {
-    return valor.toLocaleString('pt-BR', {
+
+    const numero = Number(valor)
+
+    if (isNaN(numero)) {
+      return 'R$ 0,00'
+    }
+
+    return numero.toLocaleString('pt-BR', {
       style: 'currency',
       currency: 'BRL'
     })
+
   }
 
   function abrirFormulario() {
@@ -203,7 +211,7 @@ function Registros() {
                   Plataformas:
                 </span>
 
-                {registro.plataformas.map((plataforma) => (
+                {(registro.plataformas || []).map((plataforma) => (
                   <span
                     className="badge text-bg-light me-1"
                     key={plataforma}
@@ -255,6 +263,7 @@ function Registros() {
       <RegistroForm
         aberto={mostrarFormulario}
         fechar={() => setMostrarFormulario(false)}
+        onSalvo={carregarRegistros}
       />
 
     </div>

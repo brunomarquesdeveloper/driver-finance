@@ -28,10 +28,10 @@
 * [x] Adicionar modal de suporte com formulário de contato
 ## 🧪 5. Finalização
 
-* [ ] Testar telas
-* [ ] Testar cálculos
-* [ ] Testar persistência dos dados
-* [ ] Testar mobile
-* [ ] Testar desktop
-* [ ] Corrigir bugs
-* [ ] Publicar V1
+* [x] Testar telas
+* [x] Testar cálculos
+* [x] Testar persistência dos dados
+* [x] Testar mobile
+* [x] Testar desktop
+* [x] Corrigir bugs
+* [x] Publicar V1

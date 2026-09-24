@@ -61,6 +61,24 @@ function Dashboard() {
     return hoje
   }
 
+  function converterTempoParaMinutos(tempo) {
+    if (!tempo) {
+      return 0
+    }
+
+    const [horas, minutos] = String(tempo).split(':').map(Number)
+
+    return (horas || 0) * 60 + (minutos || 0)
+  }
+
+  function formatarData(data) {
+    const ano = data.getFullYear()
+    const mes = String(data.getMonth() + 1).padStart(2, '0')
+    const dia = String(data.getDate()).padStart(2, '0')
+
+    return `${ano}-${mes}-${dia}`
+  }
+
   async function carregarDados() {
     try {
       const registros = await db.registros.toArray()
@@ -68,23 +86,39 @@ function Dashboard() {
 
       const inicioPeriodo = obterInicioPeriodo()
 
-      const inicio = inicioPeriodo
-        .toISOString()
-        .split('T')[0]
+      const inicio = formatarData(inicioPeriodo)
 
       const hoje = new Date()
+      hoje.setHours(0, 0, 0, 0)
 
-      const fim = hoje
-        .toISOString()
-        .split('T')[0]
+      const fim = formatarData(hoje)
 
-      const registrosFiltrados = registros.filter(registro => {
-        return registro.data >= inicio && registro.data <= fim
+      console.log('📊 Dashboard')
+      console.log('📅 Período:', periodo)
+      console.log('📅 Início:', inicio)
+      console.log('📅 Fim:', fim)
+      console.log('📋 Total de registros:', registros.length)
+
+      const registrosFiltrados = registros.filter((registro) => {
+        return (
+          registro.data &&
+          registro.data >= inicio &&
+          registro.data <= fim
+        )
       })
 
-      const despesasFiltradas = despesas.filter(despesa => {
-        return despesa.data >= inicio && despesa.data <= fim
+      const despesasFiltradas = despesas.filter((despesa) => {
+        return (
+          despesa.data &&
+          despesa.data >= inicio &&
+          despesa.data <= fim
+        )
       })
+
+      console.log(
+        '📋 Registros filtrados:',
+        registrosFiltrados.length
+      )
 
       // =========================
       // GANHOS
@@ -125,7 +159,9 @@ function Dashboard() {
 
       const corridas = registrosFiltrados.reduce(
         (total, registro) => {
-          return total + Number(registro.quantidadeCorridas || 0)
+          return total + Number(
+            registro.quantidadeCorridas || 0
+          )
         },
         0
       )
@@ -136,7 +172,9 @@ function Dashboard() {
 
       const minutos = registrosFiltrados.reduce(
         (total, registro) => {
-          return total + Number(registro.tempoTrabalhado || 0)
+          return total + converterTempoParaMinutos(
+            registro.tempoTrabalhado
+          )
         },
         0
       )

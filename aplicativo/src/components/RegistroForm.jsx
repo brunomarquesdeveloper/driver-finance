@@ -1,8 +1,8 @@
 import { useState } from 'react'
+
 import { salvarRegistro } from '../services/registros'
 
 function RegistroForm({ aberto, fechar, onSalvo }) {
-
   const [form, setForm] = useState({
     data: new Date().toISOString().split('T')[0],
     ganhosBrutos: '',
@@ -24,21 +24,21 @@ function RegistroForm({ aberto, fechar, onSalvo }) {
   function handleChange(event) {
     const { name, value } = event.target
 
-    setForm((prev) => ({
+    setForm(prev => ({
       ...prev,
       [name]: value
     }))
   }
 
   function handlePlataformaChange(plataforma) {
-    setForm((prev) => {
+    setForm(prev => {
       const selecionadas = prev.plataformas
 
       if (selecionadas.includes(plataforma)) {
         return {
           ...prev,
           plataformas: selecionadas.filter(
-            (item) => item !== plataforma
+            item => item !== plataforma
           )
         }
       }
@@ -54,6 +54,7 @@ function RegistroForm({ aberto, fechar, onSalvo }) {
     event.preventDefault()
 
     if (
+      !form.data ||
       !form.ganhosBrutos ||
       !form.tempoTrabalhado ||
       !form.kmPercorridos ||
@@ -69,7 +70,7 @@ function RegistroForm({ aberto, fechar, onSalvo }) {
       await salvarRegistro({
         data: form.data,
         ganhosBrutos: Number(form.ganhosBrutos),
-        tempoTrabalhado: Number(form.tempoTrabalhado),
+        tempoTrabalhado: form.tempoTrabalhado,
         kmPercorridos: Number(form.kmPercorridos),
         quantidadeCorridas: Number(form.quantidadeCorridas),
         plataformas: form.plataformas
@@ -84,14 +85,11 @@ function RegistroForm({ aberto, fechar, onSalvo }) {
         plataformas: []
       })
 
-      //alert('Registro salvo com sucesso!')
-
-      // Notifica o componente pai que foi salvo e fecha a modal
       if (onSalvo) {
         onSalvo()
       }
-      fechar()
 
+      fechar()
     } catch (error) {
       console.error('❌ Erro ao salvar registro:', error)
       alert('Erro ao salvar registro.')
@@ -106,25 +104,29 @@ function RegistroForm({ aberto, fechar, onSalvo }) {
 
   return (
     <>
-      {/* Backdrop (fundo escuro da modal) */}
+      {/* Backdrop */}
       <div className="modal-backdrop fade show"></div>
 
-      {/* Estrutura principal da modal */}
+      {/* Modal */}
       <div
         className="modal fade show d-block"
         tabIndex="-1"
         role="dialog"
         style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
       >
-        <div className="modal-dialog modal-fullscreen" role="document">
+        <div
+          className="modal-dialog modal-fullscreen"
+          role="document"
+        >
           <div className="modal-content">
 
-            {/* Cabeçalho da Modal */}
+            {/* Cabeçalho */}
             <div className="modal-header">
               <div>
                 <h2 className="h5 fw-bold mb-1">
                   Registro diário
                 </h2>
+
                 <p className="text-secondary small mb-0">
                   Registre os dados do seu dia de trabalho.
                 </p>
@@ -138,9 +140,13 @@ function RegistroForm({ aberto, fechar, onSalvo }) {
               ></button>
             </div>
 
-            {/* Corpo da Modal (Formulário) */}
+            {/* Corpo */}
             <div className="modal-body">
-              <form onSubmit={handleSubmit} id="registroForm">
+
+              <form
+                onSubmit={handleSubmit}
+                id="registroForm"
+              >
 
                 {/* Data */}
                 <div className="mb-3">
@@ -189,22 +195,14 @@ function RegistroForm({ aberto, fechar, onSalvo }) {
                     Tempo trabalhado
                   </label>
 
-                  <div className="input-group">
-                    <input
-                      type="number"
-                      min="0"
-                      className="form-control"
-                      name="tempoTrabalhado"
-                      value={form.tempoTrabalhado}
-                      onChange={handleChange}
-                      placeholder="0"
-                      required
-                    />
-
-                    <span className="input-group-text">
-                      min
-                    </span>
-                  </div>
+                  <input
+                    type="time"
+                    className="form-control"
+                    name="tempoTrabalhado"
+                    value={form.tempoTrabalhado}
+                    onChange={handleChange}
+                    required
+                  />
 
                   <div className="form-text">
                     Informe o tempo total trabalhado no dia.
@@ -261,7 +259,7 @@ function RegistroForm({ aberto, fechar, onSalvo }) {
                   </label>
 
                   <div className="border rounded p-2">
-                    {plataformasDisponiveis.map((plataforma) => (
+                    {plataformasDisponiveis.map(plataforma => (
                       <div
                         className="form-check py-2"
                         key={plataforma}
@@ -288,7 +286,7 @@ function RegistroForm({ aberto, fechar, onSalvo }) {
 
                   {form.plataformas.length > 0 && (
                     <div className="mt-2">
-                      {form.plataformas.map((plataforma) => (
+                      {form.plataformas.map(plataforma => (
                         <span
                           className="badge text-bg-light me-1"
                           key={plataforma}
@@ -303,7 +301,7 @@ function RegistroForm({ aberto, fechar, onSalvo }) {
               </form>
             </div>
 
-            {/* Rodapé da Modal (Botões de Ação) */}
+            {/* Rodapé */}
             <div className="modal-footer">
               <button
                 type="button"
@@ -321,7 +319,10 @@ function RegistroForm({ aberto, fechar, onSalvo }) {
                 disabled={salvando}
               >
                 <i className="bi bi-check-lg me-2"></i>
-                {salvando ? 'Salvando...' : 'Salvar registro'}
+
+                {salvando
+                  ? 'Salvando...'
+                  : 'Salvar registro'}
               </button>
             </div>
 
