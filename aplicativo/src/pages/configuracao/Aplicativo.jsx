@@ -32,18 +32,6 @@ function Aplicativo() {
           <i className="bi bi-chevron-right"></i>
         </button>
 
-        <div className="list-group-item d-flex justify-content-between align-items-center">
-          <span>
-            <i className="bi bi-database me-3"></i>
-            Status do armazenamento
-          </span>
-
-          <span className="text-success">
-            <i className="bi bi-check-circle me-1"></i>
-            Disponível
-          </span>
-        </div>
-
       </div>
     </>
   )

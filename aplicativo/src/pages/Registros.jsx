@@ -128,14 +128,6 @@ function Registros() {
                   </div>
                 </div>
 
-                <button
-                  type="button"
-                  className="btn btn-light btn-sm rounded-circle"
-                  aria-label={`Opções do dia ${registro.data}`}
-                >
-                  <i className="bi bi-three-dots-vertical"></i>
-                </button>
-
               </div>
 
               {/* Ganhos */}
