@@ -25,13 +25,6 @@
 * [x] Calcular informações do Dashboard
 * [x] Adicionar configurações de personalização, tema, e gerenciamento de dados
 
-## 📱 4. PWA
-
-* [ ] Testar instalação no celular
-* [ ] Testar abertura pelo celular
-* [ ] Testar funcionamento offline
-* [ ] Testar atualização do aplicativo
-
 ## 🧪 5. Finalização
 
 * [ ] Testar telas
