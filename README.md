@@ -13,7 +13,7 @@ A proposta é oferecer uma alternativa simples às planilhas e anotações manua
 O aplicativo pode ser acessado através do deploy do projeto:
 
 Driver Finance:
-https://appcardriverfinance.vercel.app/despesas
+https://appcardriverfinance.vercel.app
 
 ---
 
