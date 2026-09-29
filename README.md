@@ -217,7 +217,7 @@ Vercel| Deploy da aplicação
 
 Para acompanhar as tarefas, etapas de implementação e próximos passos:
 
-👉 "Consulte o CHECKLIST.md" ./CHECKLIST.md
+👉 **[Ver Checklist de Desenvolvimento](./CHECKLIST.md)**
 
 O "README.md" apresenta a visão geral do projeto, enquanto o "CHECKLIST.md" é utilizado como painel de desenvolvimento.
 
